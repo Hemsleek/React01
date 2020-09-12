@@ -1,17 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const Course = ({title ,duration}) =>(      
+    <div className="course">
+    <h2>{title}</h2>  
+    <p>{duration}</p>
+    </div>
+)
+
+
+const App = () => {
+    const curricculum = [
+        {
+            title:"HTML/CSS",
+            duration:"1 month"
+        },
+        {
+            title:"HTML/CSS",
+            duration:"1 month"
+        },
+        {
+            title:"HTML/CSS",
+            duration:"1 month"
+        },
+        {
+            title:"HTML/CSS",       
+            duration:"1 month"
+        },
+        {
+            title:"HTML/CSS",
+            duration:"1 month"
+        },
+        {
+            title:"HTML/CSS",
+            duration:"1 month"
+        } 
+    ]
+    return (
+        <div className="App">
+            {
+                curricculum.map(({title, duration}) => (
+                    <Course title={title} duration={duration} />
+                ))
+            }
+        </div>
+    )
+}
+
+ReactDOM.render( < App /> , document.getElementById("root"))
