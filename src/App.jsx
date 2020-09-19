@@ -1,4 +1,12 @@
 import React, { useState } from 'react'
+import {Switch ,Route} from 'react-router-dom'
+
+//routes
+import HomePage from './Pages/Home'
+import AboutPage from './Pages/About'
+import ContactPage from './Pages/Contact'
+import LoginPage from './Pages/Login'
+import NavBar from './Components/NavBar'
 
 import './App.scss'
 
@@ -33,6 +41,16 @@ export default() => {
             <input type="text" value={state} />
             <button onClick={() => submit()}>Change</button>
             <div className="box" onMouseEnter={colors} style={          {backgroundColor:color}} />
+
+            <Switch>
+            <Route path='/debug' render={(props) => (<pre>{JSON.stringify(props,null,3)}</pre>)} />
+                <Route path='/' component={NavBar} exact />
+                <Route path='/home' component={HomePage}  />
+                <Route path='/login' component={LoginPage} />
+                <Route path='/contact' component={ContactPage}  />
+                <Route path='/about' component={AboutPage} />
+            </Switch>
+
         </center>
     )
 }
