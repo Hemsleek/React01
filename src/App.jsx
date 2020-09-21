@@ -49,6 +49,7 @@ export default() => {
                 <Route path='/login' component={LoginPage} />
                 <Route path='/contact' component={ContactPage}  />
                 <Route path='/about' component={AboutPage} />
+                <Route render={()=> <h2>path does no exist</h2>} />
             </Switch>
 
         </center>
